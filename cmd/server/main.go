@@ -10,6 +10,7 @@ import (
 	"github.com/smartwalle/wx/cmd/protocol"
 	"html/template"
 	"net/http"
+	_ "net/http/pprof"
 	"sync"
 )
 

@@ -100,10 +100,11 @@ func (this *Router) initPub(remoteSession *webrtc.SessionDescription) (localSess
 
 				ticker := time.NewTicker(time.Second * 3)
 				for range ticker.C {
-					if peer != nil {
-						if err := peer.WriteRTCP([]rtcp.Packet{&rtcp.PictureLossIndication{MediaSSRC: track.SSRC()}}); err != nil {
-							return
-						}
+					if peer == nil {
+						return
+					}
+					if err := peer.WriteRTCP([]rtcp.Packet{&rtcp.PictureLossIndication{MediaSSRC: track.SSRC()}}); err != nil {
+						return
 					}
 				}
 			}()
