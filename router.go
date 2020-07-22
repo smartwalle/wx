@@ -237,7 +237,6 @@ func (this *Router) rewriteRTP(src, dst *webrtc.Track) error {
 	var err error
 	defer func() {
 		logger.Printf("发布者 [%s] 停止转发 [%v] 数据 \n", this.id, src.Kind())
-
 	}()
 	logger.Printf("发布者 [%s] 开始转发 [%v] 数据 \n", this.id, src.Kind())
 
