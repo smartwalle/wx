@@ -300,6 +300,7 @@ func (this *Router) Close() error {
 	if this.publisher != nil {
 		this.publisher.Close()
 	}
+	this.publisher = nil
 	for key, sub := range this.subscribers {
 		sub.Close()
 		delete(this.subscribers, key)
